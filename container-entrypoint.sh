@@ -271,7 +271,7 @@ function run_custom_scripts {
           fi;
           ;;
 
-        *.sql)        echo "CONTAINER: running ${f} ..."; echo "exit" | sqlplus -s / as sysdba @"${f}"; echo "CONTAINER: DONE: running ${f}"
+        *.sql)        echo "CONTAINER: running ${f} ..."; echo "exit" | sqlplus -s $APP_USER/$APP_USER_PASSWORD @"${f}"; echo "CONTAINER: DONE: running ${f}"
           ;;
 
         *.sql.zip)    echo "CONTAINER: running ${f} ..."; echo "exit" | unzip -p "${f}" | sqlplus -s / as sysdba; echo "CONTAINER: DONE: running ${f}"
